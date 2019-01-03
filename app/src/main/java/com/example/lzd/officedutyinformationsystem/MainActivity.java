@@ -2,6 +2,7 @@ package com.example.lzd.officedutyinformationsystem;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity{
     private String userName,psw,spPsw;//获取的用户名，密码，加密密码
     private EditText et_user_name,et_psw;//编辑框
     private ImageView iv_head;
+    private final int CAMERA_REQUEST = 8888;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -42,7 +44,8 @@ public class MainActivity extends AppCompatActivity{
         iv_head.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent();
+                Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, CAMERA_REQUEST);
                 
             }
         });
@@ -159,8 +162,17 @@ public class MainActivity extends AppCompatActivity{
                 et_user_name.setText(userName);
                 //et_user_name控件的setSelection()方法来设置光标位置
                 et_user_name.setSelection(userName.length());
+
             }
+
+        }
+        //拍照返回的照片
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            Bitmap photo = (Bitmap) data.getExtras().get("data");
+            iv_head.setImageBitmap(photo);
         }
     }
+
+
 }
 
