@@ -15,7 +15,7 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate( SQLiteDatabase db ) {
-        db.execSQL("create table information(_id integer PRIMARY KEY AUTOINCREMENT, name varchar(20) ,age varchar(20),grade varchar(20),sex varchar(20),number varchar(20), password integer);");
+        db.execSQL("create table information(_id integer PRIMARY KEY AUTOINCREMENT, name varchar(20) ,age varchar(20),grade text,sex text,number text(20), password integer);");
 
         Toast.makeText(mcontext,"创建成功",Toast.LENGTH_SHORT).show();
     }

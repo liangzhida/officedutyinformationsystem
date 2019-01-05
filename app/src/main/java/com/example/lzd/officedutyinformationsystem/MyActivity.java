@@ -69,8 +69,9 @@ public class MyActivity extends AppCompatActivity {
                 values.put("age", edtAge.getText().toString());
                 values.put("grade", edtGrade.getText().toString());
                 values.put("number", edtNumber.getText().toString());
+
                 values.put("sex", edtSex.getText().toString());
-                db.insert("information", null, values);
+                long information = db.insert("information", null, values);
                 Toast.makeText(MyActivity.this, "信息修改成功！", Toast.LENGTH_SHORT).show();
                 values.clear();
 
@@ -93,7 +94,7 @@ public class MyActivity extends AppCompatActivity {
                     userTable.setGrade(cursor.getString(cursor.getColumnIndex("grade")));
                     userTable.setSex(cursor.getString(cursor.getColumnIndex("sex")));
                     userTable.setNumber(cursor.getString(cursor.getColumnIndex("number")));
-                    tvShow.setText("用户名："+userTable.getName()+"性别:"+userTable.getSex());
+                    tvShow.setText("用户名："+userTable.getName()+"性别:"+userTable.getSex()+"年龄："+userTable.getAge()+"编号："+userTable.getNumber()+"等级："+userTable.getGrade());
                     Log.i("MyUserTable", userTable.toString());
 
 
