@@ -21,7 +21,7 @@ public class Main2Activity extends AppCompatActivity {
     private ImageView imageView;
     private TextView textView5;
     private LinearLayout linearLayout;
-    private Button btnSchedule;
+    private Button btnSchedule,btn_luru;
     private Button btnAttention;
     private Button btnArrangement;
     @Override
@@ -32,18 +32,13 @@ public class Main2Activity extends AppCompatActivity {
 
         textView4 = (TextView) findViewById(R.id.textView4);
         ChatlinearLayout = (LinearLayout) findViewById(R.id.ChatlinearLayout);
-        imageView2 = (ImageView) findViewById(R.id.imageView2);
-        textView7 = (TextView) findViewById(R.id.textView7);
+
         MianlinearLayout = (LinearLayout) findViewById(R.id.MianlinearLayout);
-        imageView3 = (ImageView) findViewById(R.id.imageView3);
-        textView6 = (TextView) findViewById(R.id.textView6);
         mylinearLayout = (LinearLayout) findViewById(R.id.mylinearLayout);
-        imageView = (ImageView) findViewById(R.id.imageView);
-        textView5 = (TextView) findViewById(R.id.textView5);
         linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
         btnSchedule = (Button) findViewById(R.id.btn_schedule);
         btnAttention = (Button) findViewById(R.id.btn_attention);
-        btnArrangement = (Button) findViewById(R.id.btn_arrangement);
+        btn_luru = (Button) findViewById(R.id.btn_luru);
         btnSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
@@ -59,7 +54,7 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
 
-        mylinearLayout.setOnClickListener(new View.OnClickListener() {
+        btn_luru.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick( View v ) {
                 Intent intent7=new Intent(Main2Activity.this,MyActivity.class);
